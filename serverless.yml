@@ -1,0 +1,40 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: my-service
+
+# Remember to install project dependencies to register the provider plugin.
+# $ npm install
+provider:
+  name: openwhisk
+
+functions:
+
+  calculadora:
+    handler: handler.calculadora
+    memory: 128
+    events:
+      - http:
+          path: calculadora
+          method: get
+  pokeApi:
+    handler: handler.pokeApi
+    memory: 128
+    events:
+      - http:
+          path: pokeApi
+          method: get
+# extend the framework using plugins listed here:
+# https://github.com/serverless/plugins
+plugins:
+  - serverless-openwhisk
